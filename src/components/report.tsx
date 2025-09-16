@@ -32,7 +32,7 @@ const ServiceReportDocument: React.FC<Props> = ({ data }) => {
         <View style={styles.tableInfo}>
           <View style={styles.infoRow}>
             <Text style={styles.infoLabel}>Kepada</Text>
-            <Text style={styles.infoValue}>: {data.customer}</Text>
+            <Text style={styles.infoValue}>: {data.to}</Text>
           </View>
           <View style={styles.infoRow}>
             <Text style={styles.infoLabel}>Alamat</Text>
