@@ -40,9 +40,9 @@ export default function Home() {
           </button>
         </div>
 
-        {/* <div>
+        <div>
           <PDFPreview formData={formData} isVisible={true} />
-        </div> */}
+        </div>
 
         <div>
           {isSubmit && finalForm && <PDFDownload formData={finalForm} />}

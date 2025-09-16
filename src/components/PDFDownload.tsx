@@ -18,7 +18,6 @@ interface PDFDownloadProps {
 }
 
 export const PDFDownload: React.FC<PDFDownloadProps> = ({ formData }) => {
-  console.log(formData);
   const count = useRef(0);
 
   const [isMobile, setIsMobile] = useState(false);
