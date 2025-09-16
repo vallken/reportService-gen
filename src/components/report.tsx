@@ -18,8 +18,6 @@ const ServiceReportDocument: React.FC<Props> = ({ data }) => {
     ? data.problem.split("\n").filter((c) => c.trim() !== "")
     : [];
 
-  console.log(data);
-
   return (
     <Document>
       <Page size="A4" style={styles.page}>
