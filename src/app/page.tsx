@@ -1,8 +1,5 @@
-// src/app/page.tsx - PDF PREVIEW ONLY VERSION
 "use client";
-
-import React, { useState, useRef } from "react";
-import dynamic from "next/dynamic";
+import React, { useState } from "react";
 import { useFormData } from "@/hooks/useFormData";
 
 // Components
@@ -12,9 +9,17 @@ import ProductDetailsSection from "@/components/ProductDetailsSection";
 import ServiceDetailsSection from "@/components/ServiceDetailsSection";
 import SignaturesSection from "@/components/SignatureUpload";
 import PDFPreview from "@/components/PDFPreview";
+import { PDFDownload } from "@/components/PDFDownload";
 
 export default function Home() {
   const { formData, updateField } = useFormData();
+  const [isSubmit, setSubmit] = useState<boolean>(false);
+  const [finalForm, setFinalForm] = useState(null);
+
+  const handleSubmit = () => {
+    setFinalForm(formData);
+    setSubmit(true);
+  };
 
   return (
     <main>
@@ -27,10 +32,20 @@ export default function Home() {
 
         <ServiceDetailsSection formData={formData} updateField={updateField} />
 
-        {/* Enhanced Signatures Section */}
         <SignaturesSection formData={formData} updateField={updateField} />
-        <div>
+
+        <div className="px-4 py-2 my-2 " style={{ marginTop: "16px" }}>
+          <button className="btn-base btn-fill" onClick={handleSubmit}>
+            Submit
+          </button>
+        </div>
+
+        {/* <div>
           <PDFPreview formData={formData} isVisible={true} />
+        </div> */}
+
+        <div>
+          {isSubmit && finalForm && <PDFDownload formData={finalForm} />}
         </div>
       </div>
     </main>

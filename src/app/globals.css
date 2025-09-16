@@ -6,7 +6,8 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, Helvetica,
+    sans-serif;
   margin: 0;
   padding: 10px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -426,6 +427,85 @@ th {
   z-index: 2000;
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+/* Base Button Styles */
+.btn-base {
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 140px;
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+/* Animated Fill Button */
+.btn-fill {
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-fill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  z-index: -1;
+  transition: left 0.5s ease;
+}
+
+.btn-fill:hover::before {
+  left: 0;
+}
+
+.btn-fill:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-fill:active {
+  transform: translateY(0);
+}
+
+.btn-fill:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-fill:disabled:hover::before {
+  left: -100%;
+}
+
+.btn-fill:disabled:hover {
+  color: #667eea;
+}
+
+/* Utility Classes */
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 .success-message.show {
